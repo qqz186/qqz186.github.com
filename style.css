@@ -1,0 +1,118 @@
+body {
+    font-size: 10.5pt;
+    font-family : Bitstream Vera Sans, Lucida Sans, SimSun, 宋体, sans-serif;
+    color: black;
+    background : white;
+    position:relative;
+}
+.tabBodyFrame {
+    margin-left: 8%;
+    margin-right: 8%;
+}
+.tabBody {
+    margin-top: 3%;
+    margin-left: 3%;
+    margin-right: 3%;
+    padding: 3%;
+    border: 2pt solid #ffa500;
+    background : white;
+    text-align: justify;
+    display: block;
+    max-width: 1000px;
+}
+a {
+    color: blue;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+    background-color: #ffe4c4;
+}
+code {
+    font-family : Bitstream Vera Sans Mono, Courier New, Courier, monospace;
+}
+.code {
+    font-family : Bitstream Vera Sans Mono, Courier New, Courier, monospace;
+    border: #777777 1px solid;
+    margin-left: 2em;
+    margin-right: 2em;
+    padding: 0.5em;
+    font-size: 9pt;
+    overflow: auto;
+}
+.verbatim {
+    font-size: 9pt;
+}
+h1 {
+    font-family : Arial, Bitstream Vera Sans, Lucida Sans, 黑体, sans-serif;
+    margin-top: 28pt;
+    margin-bottom: 21pt;
+    padding-bottom: 10pt;
+    font-size: 22pt;
+    border-bottom: 2px solid #ffa500;
+}
+h2 {
+    font-family : Arial, Bitstream Vera Sans, Lucida Sans, 黑体, sans-serif;
+    margin-top: 20pt;
+    margin-bottom: 15pt;
+    font-size: 16pt;
+    border-bottom: 1px solid #ffa500;
+}
+h3 {
+    font-family : Arial, Bitstream Vera Sans, Lucida Sans, 黑体, sans-serif;
+    margin-top: 16pt;
+    margin-bottom: 12pt;
+    font-size: 14pt;
+    border-bottom: 1px dashed #ffa500;
+}
+h4 {
+    font-family : Bitstream Vera Sans, Lucida Sans, SimSun, 宋体, sans-serif;
+    margin-top: 10pt;
+    margin-bottom: 10pt;
+    font-size: 12pt;
+}
+h5 {
+    font-family : Bitstream Vera Sans, Lucida Sans, SimSun, 宋体, sans-serif;
+    margin-top: 10pt;
+    margin-bottom: 5pt;
+    font-size: 12pt;
+}
+h6 {
+    font-family : Bitstream Vera Sans, Lucida Sans, SimSun, 宋体, sans-serif;
+    margin-top: 10pt;
+    font-size: 12pt;
+}
+li {
+    line-height: 150%;
+}
+p {
+    text-indent : 2em;
+    font-size: 10.5pt;
+    line-height: 150%;
+}
+img {
+    border: 0;
+}
+#bottom {
+    margin-top: 9pt;
+    margin-bottom: 3%;
+    margin-left: 3%;
+    margin-right: 3%;
+    padding-left: 3%;
+    padding-right: 3%;
+    height: 60px;
+}
+#vimlogo, #deplatelogo, #adsense, #s51la {
+    display: inline-block;
+    vertical-align: middle;
+}
+th, td {
+    border: 1px 
+    solid #ccc; 
+    padding: 0.3em;
+}
+th {
+    background-color: #f0f0f0;
+    font: 80% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+}
+
