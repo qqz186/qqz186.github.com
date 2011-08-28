@@ -1,0 +1,363 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>WikipediaRegex</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+'''正则表达式'''，也译为'''正规表示法'''、'''常规表示法'''，在<a href="计算机科学.html">计算机科学</a>中，是指一个用来描述或者匹配一系列符合某个<a href="句法.html">句法</a>规则的<a href="字符串.html">字符串</a>的单个字符串。在很多<a href="文本编辑器.html">文本编辑器</a>或其他工具里，正则表达式通常被用来检索和/或替换那些符合某个模式的文本内容。许多<a href="程序设计语言.html">程序设计语言</a>都支持利用正则表达式进行字符串操作。例如，在<a href="Perl.html">Perl</a>中就内建了一个功能强大的正则表达式引擎。正则表达式这个概念最初是由<a href="Unix.html">Unix</a>中的工具软件（例如<a href="sed.html">sed</a>和<a href="grep.html">grep</a>）普及开的。正则表达式通常缩写成“'''regex'''”，<a href="单数.html">单数</a>有regexp、regex，<a href="复数.html">复数</a>有regexps、regexes、regexen。
+</p>
+
+<h2 id="toc_0.1">译名问题</h2>
+<p>
+Regular Expression的「Regular」一般被译为「正则」、「正规」、「常规」。此处的「Regular」即是「规则」、「规律」的意思，Regular Expression即「描述某种规则的<a href="表达式.html">表达式</a>」之意。
+</p>
+
+<h2 id="toc_0.2">基本概念</h2>
+<p>
+一个正则表达式通常被称为一个''模式 (pattern)''，为用来描述或者匹配一系列符合某个<a href="句法.html">句法</a>规则的<a href="字符串.html">字符串</a>。例如：''Handel''、''H?ndel'' 和 ''Haendel'' 这三个字符串，都可以由「&lt;code&gt;&lt;nowiki&gt;H(a|?|ae)ndel&lt;/nowiki&gt;&lt;/code&gt;」这个模式来描述。大部分正则表达式的形式都有如下的结构：
+</p>
+
+<p>
+;选择
+: |
+::竖直分隔符代表选择。例如「&lt;code&gt;&lt;nowiki&gt;gray|grey&lt;/nowiki&gt;&lt;/code&gt;」可以匹配grey或gray。
+</p>
+
+<p>
+;数量限定
+:某个字符后的数量限定符用来限定前面这个字符允许出现的个数。最常见的数量限定符包括“'''+'''”、“'''?'''”和“'''*'''”（不加数量限定则代表出现一次且仅出现一次）：
+</p>
+
+<p>
+: +
+::加号代表前面的字符必须至少出现一次。(1次、或多次)。例如，「&lt;code&gt;&lt;nowiki&gt;goo+gle&lt;/nowiki&gt;&lt;/code&gt;」可以匹配''google''、''gooogle''、''goooogle''等;
+</p>
+
+<p>
+: ?
+::问号代表前面的字符最多-{}-只可以出现一次。(0次、或1次)。例如，「&lt;code&gt;&lt;nowiki&gt;colou?r&lt;/nowiki&gt;&lt;/code&gt;」可以匹配''color''或者''colour'';
+</p>
+
+<p>
+: *
+::星号代表前面的字符可以不出现，也可以出现一次或者多次。(0次、或1次、或多次)。例如，「&lt;code&gt;&lt;nowiki&gt;0*42&lt;/nowiki&gt;&lt;/code&gt;」可以匹配''42''、''042''、''0042''、''00042''等。
+</p>
+
+<p>
+;匹配
+:圆括号可以用来定义操作符的范围和优先度。例如，「&lt;code&gt;&lt;nowiki&gt;gr(a|e)y&lt;/nowiki&gt;&lt;/code&gt;」等价于「&lt;code&gt;&lt;nowiki&gt;gray|grey&lt;/nowiki&gt;&lt;/code&gt;」，「&lt;code&gt;&lt;nowiki&gt;(grand)?father&lt;/nowiki&gt;&lt;/code&gt;」匹配''father''和''grandfather''。
+</p>
+
+<p>
+上述这些构造子都可以自由组合，因此，「&lt;code&gt;&lt;nowiki&gt;H(ae?|?)ndel&lt;/nowiki&gt;&lt;/code&gt;」和「&lt;code&gt;&lt;nowiki&gt;H(a|ae|?)ndel&lt;/nowiki&gt;&lt;/code&gt;」是相同的。
+</p>
+
+<p>
+精确的语法可能因不同的工具或程序而异。
+</p>
+
+<h2 id="toc_0.3">历史</h2>
+<p>
+最初的正则表达式出现于<a href="理论计算机科学.html">理论计算机科学</a>的<a href="自动控制.html">自动控制</a>理论和<a href="形式化语言.html">形式化语言</a>理论中。在这些领域中有对计算（自动控制）的模型和对<a href="形式化语言.html">形式化语言</a>描述与分类的研究。<a href="1940年代.html">1940年代</a>，Warren McCulloch与Walter Pitts将<a href="神经系统.html">神经系统</a>中的神经元描述成小而简单的自动控制元。在<a href="1950年代.html">1950年代</a>，数学家<a href="斯蒂芬·科尔·克莱尼.html">斯蒂芬·科尔·克莱尼</a>利用称之为「正则集合」的数学符号来描述此模型。<a href="肯·汤普逊.html">肯·汤普逊</a>将此符号系统引入编辑器<a href="QED (文字编辑器).html">QED</a>，然后是<a href="Unix.html">Unix</a>上的编辑器<a href="ed (文字编辑器).html">ed</a>，并最终引入<a href="grep.html">grep</a>。自此，正则表达式被广泛地使用于各种Unix或者类似Unix的工具，例如<a href="Perl.html">Perl</a>。
+</p>
+
+<p>
+Perl正则表达式源自于Henry Spencer写的regex，它已经演化成了pcre（Perl兼容正则表达式，Perl Compatible Regular Expressions），一个由Philip Hazel开发的，为很多现代工具所使用的库。
+</p>
+
+<p>
+各计算机语言之间的正则表达式的整合目前开展的很差。未来的Perl6的子项目Apocalypse的设计中已考虑到了这点。
+</p>
+
+<h2 id="toc_0.4">形式化语言理论</h2>
+<p>
+正则表达式可以用<a href="形式化语言.html">形式化语言</a>理论的方式来表达。正则表达式由常量和算子组成，它们分别指示字符串的集合和在这些集合上的运算。给定有限字母表 Σ 定义了下列常量:
+</p>
+<ul>
+<li>
+(“<a href="空集.html">空集</a>”) {{Unicode|?}} 指示集合 {{Unicode|?}}
+
+<li>
+(“<a href="空串.html">空串</a>”) ε 指示集合 {ε}
+
+<li>
+(“<a href="字符串文字.html">文字字符</a>”) 在 Σ 中的 ''a'' 指示集合 {''a''}
+
+</ul>
+
+<p>
+定义了下列运算:
+</p>
+<ul>
+<li>
+(“<a href="串接.html">串接</a>”) ''RS'' 指示集合 { αβ | α ∈ ''R'' ∧ β ∈ ''S'' }。例如 {"ab"|"c"}{"d"|"ef"} = {"abd", "abef", "cd", "cef"}。
+
+<li>
+(“选择”) ''R''|''S'' 指示 ''R'' 和 ''S'' 的并集。
+
+<li>
+(“<a href="Kleene星号.html">Kleene星号</a>”) ''R''* 指示包含 ε 并且<a href="闭包 (数学).html">闭包</a>在字符串串接下的 ''R'' 的最小<a href="子集.html">超集</a>。这是可以通过 ''R'' 中的零或多个字符串的串接得到所有字符串的集合。例如，{"ab", "c"}* = {ε, "ab", "c", "abab", "abc", "cab", "cc",  "ababab", ... }。
+
+</ul>
+
+<p>
+上述常量和算子形成了<a href="克莱尼代数.html">克莱尼代数</a>。
+</p>
+
+<p>
+很多课本使用对选择使用符号 {{Unicode|∪}}, {{Unicode|+}} 或 {{Unicode|∨}} 替代竖杠。
+</p>
+
+<p>
+为了避免括号，假定 Kleene 星号有最高优先级，接着是串接，接着是并集。如果没有歧义则可以省略括号。例如，&lt;code&gt;(ab)c&lt;/code&gt; 可以写为 &lt;code&gt;abc&lt;/code&gt; 而 &lt;code&gt;a|(b(c*))&lt;/code&gt; 可以写为 &lt;code&gt;a|bc*&lt;/code&gt;。
+</p>
+
+<p>
+'''例子:'''
+</p>
+<ul>
+<li>
+&lt;code&gt;a|b*&lt;/code&gt; 指示 {ε, ''a'', ''b'', ''bb'', ''bbb'', ...}。
+
+<li>
+&lt;code&gt;(a|b)*&lt;/code&gt; 指示由包括空串、任意数目个 ''a'' 或 ''b'' 字符组成的所有字符串的集合。
+
+<li>
+&lt;code&gt;ab*(c|ε)&lt;/code&gt; 指示开始于一个 ''a'' 接着零或多个 ''b'' 和最终可选的一个 ''c'' 的字符串的集合。
+
+</ul>
+
+<p>
+正则表达式的形式定义故意非常精简，避免定义多余的量词 &lt;code&gt;?&lt;/code&gt; 和 &lt;code&gt;+&lt;/code&gt;，它们可以被表达为: &lt;code&gt;a+&lt;/code&gt; = &lt;code&gt;aa*&lt;/code&gt; 和 &lt;code&gt;a?&lt;/code&gt; = &lt;code&gt;(a|ε)&lt;/code&gt;。有时增加补算子 ~ ；~''R'' 指示在 Σ* 上的不在 ''R'' 中的所有字符串的集合。补算子是多余的，因为它使用其他算子来表达(尽管计算这种表示的过程是复杂的，而结果可能指数性的增大)。
+</p>
+
+<p>
+这种意义上的正则表达式可以表达<a href="正则语言.html">正则语言</a>，精确的是可被<a href="有限状态自动机.html">有限状态自动机</a>接受的语言类。但是在简洁性上有重要区别。某类正则语言只能用大小指数增长的自动机来描述，而要求的正则表达式的长度只线性的增长。正则表达式对应于<a href="乔姆斯基层级.html">乔姆斯基层级</a>的类型-3<a href="形式文法.html">文法</a>。在另一方面，在正则表达式和不导致这种大小上的爆炸的<a href="非确定有限状态自动机.html">非确定有限状态自动机</a>(NFA)之间有简单的映射；为此 NFA 经常被用作正则表达式的替代表示。
+</p>
+
+<p>
+我们还要在这种形式化中研究表达力。如下面例子所展示的，不同的正则表达式可以表达同样的语言: 这种形式化中存在着冗余。
+</p>
+
+<p>
+有可能对两个给定正则表达式写一个<a href="算法.html">算法</a>来判定它们所描述的语言是否本质上相等，简约每个表达式到极小确定有限自动机，确定它们是否<a href="同构.html">同构</a>（等价）。
+</p>
+
+<p>
+这种冗余可以消减到什么程度? 我们可以找到仍有完全表达力的正则表达式的有趣的子集吗? Kleene 星号和并集明显是需要的，但是我们或许可以限制它们的使用。这提出了一个令人惊奇的困难问题。因为正则表达式如此简单，没有办法在语法上把它重写成某种规范形式。过去公理化的缺乏导致了<a href="星号高度问题.html">星号高度问题</a>。最近 Dexter Kozen 用<a href="克莱尼代数.html">克莱尼代数</a>公理化了正则表达式。
+</p>
+
+<p>
+很多现实世界的“正则表达式”引擎实现了不能用正则表达式代数表达的特征。
+</p>
+
+<h2 id="toc_0.5">表达式全集</h2>
+<p>
+正则表达式有多种不同的风格。下表是在PCRE中元字符及其在正则表达式上下文中的行为的一个完整列表：
+| 字符 描述 
+|\| 将下一个字符标记为一个特殊字符、或一个原义字符、或一个向后引用、或一个八进制转义符。例如，“n”匹配字符“n”。“\n”匹配一个换行符。串行“\\”匹配“\”而“\(”则匹配“(”。 
+|<sup><small> 匹配输入字符串的开始位置。如果设置了RegExp对象的Multiline属性，</small></sup>也匹配“\n”或“\r”之后的位置。 
+|$ 匹配输入字符串的结束位置。如果设置了RegExp对象的Multiline属性，$也匹配“\n”或“\r”之前的位置。 
+|* 匹配前面的子表达式零次或多次。例如，zo*能匹配“z”以及“zoo”。*等价于{0,}。 
+|+ 匹配前面的子表达式一次或多次。例如，“zo+”能匹配“zo”以及“zoo”，但不能匹配“z”。+等价于{1,}。 
+|? 匹配前面的子表达式零次或一次。例如，“do(es)?”可以匹配“does”或“does”中的“do”。?等价于{0,1}。 
+|{n} n是一个非负整数。匹配确定的n次。例如，“o{2}”不能匹配“Bob”中的“o”，但是能匹配“food”中的两个o。 
+|{n,} n是一个非负整数。至少匹配n次。例如，“o{2,}”不能匹配“Bob”中的“o”，但能匹配“foooood”中的所有o。“o{1,}”等价于“o+”。“o{0,}”则等价于“o*”。 
+|{n,m} m和n均为非负整数，其中n&lt;=m。最少匹配n次且最多匹配m次。例如，“o{1,3}”将匹配“fooooood”中的前三个o。“o{0,1}”等价于“o?”。请注意在逗号和两个数之间不能有空格。 
+|? 当该字符紧跟在任何一个其他限制符（*,+,?，{n}，{n,}，{n,m}）后面时，匹配模式是非贪婪的。非贪婪模式尽可能少的匹配所搜索的字符串，而默认的贪婪模式则尽可能多的匹配所搜索的字符串。例如，对于字符串“oooo”，“o+?”将匹配单个“o”，而“o+”将匹配所有“o”。 
+|. 匹配除“\n”之外的任何单个字符。要匹配包括“\n”在内的任何字符，请使用像“[.\n]”的模式。 
+|(pattern) 匹配pattern并获取这一匹配。所获取的匹配可以从产生的Matches集合得到，在VBScript中使用SubMatches集合，在JScript中则使用$0…$9属性。要匹配圆括号字符，请使用“\(”或“\)”。 
+|(?:pattern) 匹配pattern但不获取匹配结果，也就是说这是一个非获取匹配，不进行存储供以后使用。这在使用或字符“(|)”来组合一个模式的各个部分是很有用。例如“industr(?:y|ies)”就是一个比“industry|industries”更简略的表达式。 
+|(?=pattern) 正向肯定预查，在任何匹配pattern的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。例如，“Windows(?=95|98|NT|2000)”能匹配“Windows2000”中的“Windows”，但不能匹配“Windows3.1”中的“Windows”。预查不消耗字符，也就是说，在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，而不是从包含预查的字符之后开始。 
+|(?!pattern) 正向否定预查，在任何不匹配pattern的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。例如“Windows(?!95|98|NT|2000)”能匹配“Windows3.1”中的“Windows”，但不能匹配“Windows2000”中的“Windows”。预查不消耗字符，也就是说，在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，而不是从包含预查的字符之后开始 
+|(?&lt;=pattern) 反向肯定预查，与正向肯定预查类拟，只是方向相反。例如，“(?&lt;=95|98|NT|2000)Windows”能匹配“2000Windows”中的“Windows”，但不能匹配“3.1Windows”中的“Windows”。 
+|(?&lt;!pattern) 反向否定预查，与正向肯定预查类拟，只是方向相反。例如“(?&lt;!95|98|NT|2000)Windows”能匹配“3.1Windows”中的“Windows”，但不能匹配“2000Windows”中的“Windows”。 
+|x|y 匹配x或y。例如，“z|food”能匹配“z”或“food”。“(z|f)ood”则匹配“zood”或“food”。 
+|[xyz] 字符集合。匹配所包含的任意一个字符。例如，“[abc]”可以匹配“plain”中的“a”。 
+|[<sup><small>xyz] 负值字符集合。匹配未包含的任意字符。例如，“[</small></sup>abc]”可以匹配“plain”中的“p”。 
+|[a-z] 字符范围。匹配指定范围内的任意字符。例如，“[a-z]”可以匹配“a”到“z”范围内的任意小写字母字符。 
+|[<sup><small>a-z] 负值字符范围。匹配任何不在指定范围内的任意字符。例如，“[</small></sup>a-z]”可以匹配任何不在“a”到“z”范围内的任意字符。 
+|\b 匹配一个单词边界，也就是指单词和空格间的位置。例如，“er\b”可以匹配“never”中的“er”，但不能匹配“verb”中的“er”。 
+|\B 匹配非单词边界。“er\B”能匹配“verb”中的“er”，但不能匹配“never”中的“er”。 
+|\cx 匹配由x指明的控制字符。例如，\cM匹配一个Control-M或回车符。x的值必须为A-Z或a-z之一。否则，将c视为一个原义的“c”字符。 
+|\d 匹配一个数字字符。等价于[0-9]。 
+|\D 匹配一个非数字字符。等价于[^0-9]。 
+|\f 匹配一个换页符。等价于\x0c和\cL。 
+|\n 匹配一个换行符。等价于\x0a和\cJ。 
+|\r 匹配一个回车符。等价于\x0d和\cM。 
+|\s 匹配任何空白字符，包括空格、制表符、换页符等等。等价于[\f\n\r\t\v]。 
+|\S 匹配任何非空白字符。等价于[^\f\n\r\t\v]。 
+|\t 匹配一个制表符。等价于\x09和\cI。 
+|\v 匹配一个垂直制表符。等价于\x0b和\cK。 
+|\w 匹配包括下划线的任何单词字符。等价于“[A-Za-z0-9_]”。 
+|\W 匹配任何非单词字符。等价于“[^A-Za-z0-9_]”。 
+|\xn 匹配n，其中n为十六进制转义值。十六进制转义值必须为确定的两个数字长。例如，“\x41”匹配“A”。“\x041”则等价于“\x04&amp;1”。正则表达式中可以使用ASCII编码。. 
+|\num 匹配num，其中num是一个正整数。对所获取的匹配的引用。例如，“(.)\1”匹配两个连续的相同字符。 
+|\n 标识一个八进制转义值或一个向后引用。如果\n之前至少n个获取的子表达式，则n为向后引用。否则，如果n为八进制数字（0-7），则n为一个八进制转义值。 
+|\nm 标识一个八进制转义值或一个向后引用。如果\nm之前至少有nm个获得子表达式，则nm为向后引用。如果\nm之前至少有n个获取，则n为一个后跟文字m的向后引用。如果前面的条件都不满足，若n和m均为八进制数字（0-7），则\nm将匹配八进制转义值nm。 
+|\nml 如果n为八进制数字（0-3），且m和l均为八进制数字（0-7），则匹配八进制转义值nml。 
+|\un 匹配n，其中n是一个用四个十六进制数字表示的Unicode字符。例如，\u00A9匹配版权符号（?）。 
+</p>
+
+<h2 id="toc_0.6">范例</h2>
+<p>
+;以下是以<a href="PHP.html">PHP</a>的语法所写的范例
+</p>
+<ul>
+<li>
+验证字串是否只含数字与英文，字串长度并在4~16个字元之间
+
+</ul>
+<p>
+&lt;source lang="php"&gt;
+&lt;?php
+$str = 'a1234';
+if (preg_match("^[a-zA-Z0-9]{4,16}$", $str)) {
+</p>
+<blockquote>
+echo "验证成功";
+</blockquote>
+<p>
+} else {
+</p>
+<blockquote>
+echo "验证失败";
+</blockquote>
+<p>
+}
+?&gt;
+&lt;/source&gt;
+</p>
+<ul>
+<li>
+简易的台湾<a href="身份证.html">身份证</a>字号验证
+
+</ul>
+<p>
+&lt;source lang="php"&gt;
+&lt;?php
+$str = 'a1234';
+if (preg_match("/^\w[12]\d{8}$/", $str)) {
+</p>
+<blockquote>
+echo "验证成功";
+</blockquote>
+<p>
+} else {
+</p>
+<blockquote>
+echo "验证失败";
+</blockquote>
+<p>
+}
+?&gt;
+&lt;/source&gt;
+</p>
+
+<ul>
+<li>
+以下示例是用 <a href="Perl.html">Perl</a> 语言写的，与上面的示例功能相同
+
+</ul>
+<p>
+&lt;source lang="perl"&gt;
+print $str = "a1234" =~ m:^[a-zA-Z0-9]{4,16}$: ? "COMFIRM" : "FAILED";
+&lt;/source&gt;
+</p>
+
+<p>
+&lt;source lang="perl"&gt;
+print $str = "a1234" =~ m"^\w[12]\d{8}$" ? "COMFIRM" : "INVALID";
+&lt;/source&gt;
+</p>
+
+<h2 id="toc_0.7">常用正则表达式</h2>
+
+<p>
+用户名
+</p>
+
+<p>
+/^[a-z0-9_-]{3,16}$/
+</p>
+
+<p>
+密码
+</p>
+
+<p>
+/^[a-z0-9_-]{6,18}$/
+</p>
+
+<p>
+十六进制值
+</p>
+
+<p>
+/^#?([a-f0-9]{6}|[a-f0-9]{3})$/
+</p>
+
+<p>
+电子邮箱
+</p>
+
+<p>
+/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+</p>
+
+<p>
+URL
+</p>
+
+<p>
+/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]<strong>)</strong>\/?$/ 
+</p>
+
+<p>
+IP 地址
+</p>
+
+<p>
+/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/
+</p>
+
+<p>
+HTML 标签
+</p>
+
+<p>
+/<sup><small>&lt;([a-z]+)([</small></sup>&lt;]+)<strong>(?:&gt;(.</strong>)&lt;\/\1&gt;|\s+\/&gt;)$/
+</p>
+
+<p>
+Unicode编码中的汉字范围
+</p>
+
+<p>
+/^[\u2E80-\u9FFF]+$/
+</p>
+
+<h2 id="toc_0.8">相关条目</h2>
+<ul>
+<li>
+<a href="Perl.html">Perl</a>
+
+<li>
+<a href="PHP.html">PHP</a>
+
+<li>
+<a href="Python.html">Python</a>
+
+<li>
+<a href="Ruby.html">Ruby</a>
+
+</ul>
+
+<h2 id="toc_0.9">外部链接</h2>
+
+</body>
+</html>

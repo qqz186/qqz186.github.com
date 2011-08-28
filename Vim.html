@@ -1,0 +1,242 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>Vim</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<h1 id="toc_1">网络文摘两篇</h1>
+<ul>
+<li>
+<a href="高效率编辑器VIM.html">高效率编辑器VIM</a>
+
+<li>
+<a href="大家来学Vim.html">大家来学Vim</a>
+
+<li>
+<a href="http://www.2maomao.com/blog/wp-content/uploads/vim_tips.txt">史上最强的VIM Tips</a>
+
+</ul>
+<h1 id="toc_2">Vim 自学笔记</h1>
+<p>
+ 2011-2-5
+</p>
+<h2 id="toc_2.1">第一部分：模式 Modes</h2>
+<p>
+Vim有三种模式
+</p>
+<ul>
+<li>
+Normal Mode/Command mode：命令模式
+
+<li>
+Insert mode：大部分键入的是文本格式的。
+
+<li>
+Visual mode：帮助选择文本，也可以看成是命令模式的一种模式
+
+</ul>
+
+
+
+
+<p>
+从插入模式和可视模式进入命令模式，直接按&lt;esc&gt;
+</p>
+
+<ul>
+<li>
+如何进入插入模式（Insert Mode）
+
+<ul>
+<li>
+i insert 在光标前插入
+
+<li>
+I Insert 在光标所在整行前插入
+
+<li>
+a append 在光标后追加
+
+<li>
+A Append 在光标所在整行后追加
+
+<li>
+o open a new line below      在下面打开一行
+
+<li>
+O Open a new line above      在上面添加一行
+
+</ul>
+<li>
+如何进入可视模式（Visual Mode）
+
+<ul>
+<li>
+v 以字符为单位选择
+
+<li>
+V 以行为单位选择
+
+</ul>
+</ul>
+<h2 id="toc_2.2">第二部分：移动Movement</h2>
+<h3 id="toc_2.2.1">基本的移动</h3>
+<ul>
+<li>
+h 左
+
+<li>
+j 下
+
+<li>
+k 上
+
+<li>
+l 右
+
+<li>
+Ctrl f PageDown 下一页翻页
+
+<li>
+Ctrl b PageUp 上一页翻页
+
+</ul>
+<h3 id="toc_2.2.2">进阶的游标移动</h3>
+<ul>
+<li>
+0 数字0 移动到行首
+
+<li>
+^ （摁shift+6）
+
+<li>
+$ 移至行尾<sub><small>以上两个按键源自正则表达式</small></sub>
+
+<li>
+G 移至文档末尾
+
+<li>
+gg 移至文档首部 （goto）
+
+<li>
+w 移至下一个word
+
+<li>
+W
+
+<li>
+e 移至前一个字字尾
+
+<li>
+E
+
+<li>
+b 移至前一个字字首
+
+<li>
+B
+
+<li>
+H 移至屏幕顶
+
+<li>
+M 移至屏幕中间
+
+<li>
+L 移至屏幕底部
+
+</ul>
+<h3 id="toc_2.2.3">特殊的移动</h3>
+<ul>
+<li>
+( 上一个句子
+
+<li>
+)
+
+<li>
+{  上一个段落
+
+<li>
+}
+
+<li>
+% 匹配{}[]()只用
+
+</ul>
+<h2 id="toc_2.3">第三部分:Text Object</h2>
+<ul>
+<li>
+iw  inner word
+
+<li>
+aw  a word
+
+<li>
+iW  inner WORD
+
+<li>
+aW  a WORD
+
+<li>
+is  inner sentence
+
+<li>
+as  a sentence
+
+<li>
+ip  inner paragraph
+
+<li>
+ap  a paragraph
+
+<li>
+i(or i) inner block
+
+<li>
+a(or a) a block
+
+<li>
+i&lt;or i&gt; inner block
+
+<li>
+a&lt;or a&gt; a block
+
+<li>
+i{or i} inner block
+
+<li>
+a{or a} inner block
+
+<li>
+i" inner block
+
+<li>
+a" inner block
+
+<li>
+i` inner block
+
+<li>
+a` a block
+
+</ul>
+<h3 id="toc_2.3.1">Undo 和 Redo</h3>
+<ul>
+<li>
+u 撤销
+
+<li>
+Ctrl + R 撤销撤销
+
+</ul>
+<hr />
+<p>
+Copyleft © 2011 Yache's Personal Wiki proudly powered by <a href="http://code.google.com/p/vimwiki/">vimwiki</a>,hosted on <a href="http://github.com">github</a>.
+</p>
+
+</body>
+</html>

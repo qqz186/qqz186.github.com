@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>regex</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<h1 id="toc_1">正则表达式学习笔记</h1>
+<h2 id="toc_1.1">网文</h2>
+<ul>
+<li>
+<a href="http://iregex.org">我爱正则表达式 中文博客</a>
+
+<li>
+<a href="http://deerchao.net/tutorials/regex/regex.htm">正则表达式30分钟入门教程</a>
+
+</ul>
+<h2 id="toc_1.2">基本概念</h2>
+<h3 id="toc_1.2.1">选择</h3>
+<ul>
+<li>
+|  “gray|grey”可以匹配grey或者gray
+
+</ul>
+<h3 id="toc_1.2.2">数量限定</h3>
+<p>
+某个字符后的数量限定用来限定前面这个字符允许出现的个数。
+</p>
+<ul>
+<li>
++  加号表示前面的字符必须至少出现一次。（1次、或者多次）。“Goo+gle”
+
+<li>
+？ 问好表示前面的字符最多只可以出现一次。（0次、或者1次）。“colou?r”
+
+<li>
+*  星号表示前面的字符可以不出现，也可以出现一次或者多次。（0次、或者1次、或者多次）。“0*42”
+
+</ul>
+<h3 id="toc_1.2.3">匹配</h3>
+<p>
+圆括号可以用来自定操作符的范围和优先度。“gr(a|e)y”“(grand)?father”
+</p>
+<h3 id="toc_1.2.4">常用元字符（metacharacter）</h3>
+<ul>
+<li>
+\b 元字符，metacharacter，代表着单词的开头或结尾，就是单词的分界处。英文单词是由空格、标点符号、换行符来分隔的，但是\b并不匹配这些单词分隔符中的任何一个，它只匹配一个位置。
+
+<li>
+. 元字符 匹配除了换行符一位的任意字符。
+
+<li>
+* 元字符 它代表的不是字符，也不是位置，而是数量。它指定*前面的内容可以连续重复使用任意次数以使整个表达式得到匹配。
+
+<li>
+\d 元字符 匹配一位数字（0、或1、或2、或......）。
+
+<li>
+\s 匹配任意的空白符，包括空格，制表符（Tab），换行符，中文全角空格等。
+
+<li>
+\w 匹配字符或数字或下划线或汉字等
+
+<li>
+^（数字6键位上的符号） 匹配字符串的开始
+
+<li>
+$（数字4键位上的符号）匹配字符串的结束
+
+</ul>
+<h3 id="toc_1.2.5">字符转义</h3>
+<p>
+查找元字符本身，用\来取消这些字符的特殊意义
+</p>
+<h3 id="toc_1.2.6">重复</h3>
+<ul>
+<li>
+* 重复0次或者多次
+
+<li>
++ 重复1次或者多次
+
+<li>
+？重复0次或1次
+
+<li>
+{n}重复n次
+
+<li>
+{n,}重复n次或者多次
+
+<li>
+{n,m}重复n到m次
+
+</ul>
+
+</body>
+</html>
